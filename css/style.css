@@ -1,0 +1,298 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Inconsolata", monospace;
+}
+
+.bg {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  background: url("../assets/images/background-mobile.png") center center/cover no-repeat;
+}
+.bg .circle {
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  width: 30%;
+  aspect-ratio: 1/1;
+  background: url("../assets/images/pattern-circle.svg") center/cover;
+}
+.bg .lines {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background: url("../assets/images/pattern-lines.svg") center center/cover no-repeat;
+}
+.bg .squigglyLineTop {
+  position: absolute;
+  right: 0%;
+  width: 40%;
+  aspect-ratio: 1/1;
+  background: url("../assets/images/pattern-squiggly-line-top.svg") center/contain no-repeat;
+}
+.bg .circleMiddle {
+  position: absolute;
+  top: 65%;
+  right: -15%;
+  width: 30%;
+  aspect-ratio: 1/1;
+  background: url("../assets/images/pattern-circle.svg") center/cover;
+}
+.bg .squigglyLineBottom {
+  position: absolute;
+  bottom: 0%;
+  width: 80%;
+  aspect-ratio: 1/1;
+  background: url("../assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg") bottom/contain no-repeat;
+}
+
+@media (min-width: 1440px) {
+  .bg {
+    background: url("../assets/images/background-desktop.png") center center/cover no-repeat;
+  }
+  .bg .circle {
+    top: -80px !important;
+    left: 5% !important;
+    width: 15% !important;
+  }
+  .bg .squigglyLineTop {
+    width: 25% !important;
+  }
+  .bg .circleMiddle {
+    top: 50% !important;
+    left: 60% !important;
+    width: 15% !important;
+  }
+  .bg .squigglyLineBottom {
+    width: 50% !important;
+    background: url("../assets/images/pattern-squiggly-line-bottom-desktop.svg") bottom/contain no-repeat !important;
+  }
+}
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+.content .logo {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content .logo .logoLink {
+  width: 60%;
+  height: 50px;
+  background: url("../assets/images/logo-full.svg") center/contain no-repeat;
+}
+.content .title {
+  width: 90%;
+  margin-left: 5%;
+  color: hsl(0, 0%, 100%);
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+}
+.content .text {
+  width: 90%;
+  margin-left: 5%;
+  color: hsla(252, 6%, 83%, 0.7);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.content label {
+  margin-left: 5%;
+  color: hsl(0, 0%, 100%);
+  font-size: 20px;
+}
+.content .avatarInput {
+  width: 95%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  border: hsla(252, 6%, 83%, 0.7) 1px dashed;
+  background: hsla(246, 15%, 58%, 0.2);
+}
+.content .avatarInput .avatarImg {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border: 2px solid hsla(246, 15%, 58%, 0.3);
+  background: hsla(246, 15%, 58%, 0.2) url("../assets/images/icon-upload.svg") no-repeat center/30px;
+}
+.content .avatarInput .avatarText {
+  color: hsla(252, 6%, 83%, 0.7);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.content .avatarMsg {
+  display: flex;
+  gap: 10px;
+  margin-left: 5%;
+  margin-top: 10px;
+  color: hsla(252, 6%, 83%, 0.7);
+  font-size: 12px;
+}
+.content .avatarMsg .msgImg {
+  width: 12px;
+  height: 12px;
+  background: url("../assets/images/icon-info.svg") center/cover no-repeat;
+  margin-bottom: 30px;
+}
+.content .avatarInputFile {
+  display: none;
+}
+.content .divInput {
+  width: 95%;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  background: hsla(246, 15%, 58%, 0.2);
+  border: 1px solid hsla(252, 6%, 83%, 0.7);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.content .divInput input {
+  width: 100%;
+  height: 50px;
+  background: none;
+  border: none;
+  padding-left: 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: hsla(252, 6%, 83%, 0.7);
+}
+.content .divInput input:active,
+.content .divInput input:focus {
+  outline: none;
+}
+.content .divInput input::placeholder {
+  color: hsla(252, 6%, 83%, 0.7);
+}
+.content .sendBtn {
+  width: 90%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5%;
+  border-radius: 10px;
+  background-color: hsl(7, 88%, 67%);
+  color: hsl(248, 70%, 10%);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+@media (min-width: 1000px) {
+  .title {
+    width: 60% !important;
+    margin-left: 20% !important;
+    font-size: 50px !important;
+  }
+  .text {
+    font-size: 24px !important;
+  }
+  .label {
+    margin-left: 33.333333% !important;
+  }
+  .avatarInput {
+    width: 35% !important;
+    margin-left: 29.8% !important;
+  }
+  .avatarMsg {
+    margin-left: 33.333333% !important;
+    font-size: 18px !important;
+  }
+  .avatarMsg .msgImg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+  .divInput {
+    width: 35% !important;
+    margin-left: 29.8% !important;
+  }
+  .sendBtn {
+    width: 33.333333% !important;
+    margin-left: 33.333333% !important;
+  }
+}
+.result {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  z-index: 3;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,97 @@
+@use 'variables' as *;
+
+.bg {
+    position: fixed;
+
+    width: 100%;
+    height: 100vh;
+
+    z-index: 1;
+
+    background: url('../assets/images/background-mobile.png') center center / cover no-repeat;
+
+    .circle {
+        position: absolute;
+
+        top: -40px;
+        left: -20px;
+
+        width: 30%;
+        aspect-ratio: 1 / 1;
+
+        background: url('../assets/images/pattern-circle.svg') center / cover;
+    }
+
+    .lines {
+        position: absolute;
+
+        width: 100%;
+        height: 100vh;
+
+        background: url('../assets/images/pattern-lines.svg') center center / cover no-repeat;
+    }
+
+    .squigglyLineTop {
+        position: absolute;
+
+        right: 0%;
+
+        width: 40%;
+        aspect-ratio: 1 / 1;
+
+        background: url('../assets/images/pattern-squiggly-line-top.svg') center / contain no-repeat;
+    }
+
+    .circleMiddle {
+        position: absolute;
+
+        top: 65%;
+        right: -15%;
+
+        width: 30%;
+        aspect-ratio: 1 / 1;
+
+        background: url('../assets/images/pattern-circle.svg') center / cover;
+    }
+
+    .squigglyLineBottom {
+        position: absolute;
+
+        bottom: 0%;
+
+        width: 80%;
+        aspect-ratio: 1 / 1;
+
+        background: url('../assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg') bottom / contain no-repeat;
+    }
+}
+
+@media (min-width: 1440px) {
+    .bg {
+        background: url('../assets/images/background-desktop.png') center center / cover no-repeat;
+
+        .circle {
+            top: -80px !important;
+            left: 5% !important;
+
+            width: 15% !important;
+        }
+
+        .squigglyLineTop {
+            width: 25% !important;
+        }
+
+        .circleMiddle {
+            top: 50% !important;
+            left: 60% !important;
+
+            width: 15% !important;
+        }
+
+        .squigglyLineBottom {
+            width: 50% !important;
+
+            background: url('../assets/images/pattern-squiggly-line-bottom-desktop.svg') bottom / contain no-repeat !important;
+        }
+    }
+}

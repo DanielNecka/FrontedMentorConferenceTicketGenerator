@@ -1,0 +1,225 @@
+@use 'variables' as *;
+
+.content {
+    position: absolute;
+
+    width: 100%;
+    height: 100vh;
+
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+
+    .logo {
+        width: 100%;
+        height: 10%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .logoLink {
+            width: 60%;
+            height: 50px;
+
+            background: url('../assets/images/logo-full.svg') center / contain no-repeat;
+        }
+    }
+
+    .title {
+        width: 90%;
+
+        margin-left: 5%;
+
+        color: $textColor;
+        font-size: 30px;
+        font-weight: 800;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .text {
+        width: 90%;
+
+        margin-left: 5%;
+
+        color: $textAccent;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.2;
+        text-align: center;
+
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    label {
+        margin-left: 5%;
+
+        color: $textColor;
+        font-size: 20px;
+    }
+
+    .avatarInput {
+        width: 95%;
+
+        margin-top: 20px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        gap: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        border-radius: 10px;
+        border: $textAccent 1px dashed;
+
+        background: $bgInput;
+
+        .avatarImg {
+            width: 50px ;
+            height: 50px;
+
+            border-radius: 10px;
+            border: 2px solid $bgBorderAccentInput;
+
+            background: $bgAccentInput url('../assets/images/icon-upload.svg') no-repeat center / 30px;
+        }
+
+        .avatarText {
+            color: $textAccent;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+    }
+
+    .avatarMsg {
+        display: flex;
+
+        gap: 10px;
+
+        margin-left: 5%;
+        margin-top: 10px;
+
+        color: $textAccent;
+        font-size: 12px;
+
+        .msgImg {
+            width: 12px;
+            height: 12px;
+
+            background: url("../assets/images/icon-info.svg") center / cover no-repeat;
+        
+            margin-bottom: 30px;
+        }
+    }
+
+    .avatarInputFile {
+        display: none;
+    }
+
+    .divInput {
+        width: 95%;
+        height: 50px;
+
+        margin-top: 20px;
+        margin-bottom: 30px;
+
+        background: $bgInput;
+        border: 1px solid $textAccent;
+        border-radius: 10px;
+
+        overflow: hidden;
+
+        input {
+            width: 100%;
+            height: 50px;
+
+            background: none;
+            border: none;
+
+            padding-left: 15px;
+            box-sizing: border-box;
+
+            font-size: 16px;
+            color: $textAccent;
+        }
+
+        input:active,
+        input:focus {
+            outline: none;
+        }
+
+        input::placeholder {
+            color: $textAccent;
+        }
+    }
+
+    .sendBtn {
+        width: 90%;
+        height: 50px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin-left: 5%;
+
+        border-radius: 10px;
+
+        background-color: $btnBgColor;
+        color: $btnText;
+        font-size: 20px;
+        font-weight: 800;
+    }
+}
+
+@media (min-width: 1000px) {
+    .title {
+        width: 60% !important;
+        margin-left: 20% !important;
+
+        font-size: 50px !important;
+    }
+
+    .text {
+        font-size: 24px !important;
+    }
+
+    .label {
+        margin-left: 33.333333% !important;
+    }
+
+    .avatarInput {
+        width: 35% !important;
+
+        margin-left: 29.8% !important;
+    }
+
+    .avatarMsg {
+        margin-left: 33.333333% !important;
+        font-size: 18px !important;
+
+        .msgImg {
+            width: 18px !important;
+            height: 18px !important;
+        }
+    }
+
+    .divInput {
+        width: 35% !important;
+
+        margin-left: 29.8% !important;
+    }
+
+    .sendBtn {
+        width: 33.333333% !important;
+
+        margin-left: 33.333333% !important;
+    }
+}

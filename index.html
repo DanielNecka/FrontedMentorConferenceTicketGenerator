@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <link rel="stylesheet" href="./css/style.css">
+
+  <title>Frontend Mentor | Conference ticket generator</title>
+</head>
+<body>
+  <div class="bg">
+    <div class="circle"></div>
+    <div class="lines"></div>
+    <div class="circleMiddle"></div>
+    <div class="squigglyLineTop"></div>
+    <div class="squigglyLineBottom"></div>
+  </div>
+
+  <div class="content">
+    <div class="logo">
+      <a class="logoLink" href=""></a>
+    </div>
+
+    <div class="title">Your Journey to Coding Conf 2025 Starts Here!</div>
+    
+    <div class="text">Secure your spot at next year's biggest coding conference.</div>
+  
+    <label for="avatar" class="label">Upload Avatar</label>
+    <label for="avatar">
+      <div class="avatarInput">
+        <div class="avatarImg"></div>
+        <div class="avatarText">Drag and drop or click to upload</div>
+      </div>
+    </label>
+
+    <div class="avatarMsg"><div class="msgImg"></div>Upload your photo (JPG or PNG, max size: 500KB).</div>
+
+    <input type="file" name="avatar" id="avatar" accept="image/*" class="avatarInputFile">
+  
+    <label for="name" class="label">Full Name</label>
+
+    <label for="name">
+      <div class="divInput">
+        <input id="name" type="text">
+      </div>
+    </label>
+
+    <label for="email" class="label">Email Address</label>
+
+    <label for="email">
+      <div class="divInput">
+        <input id="text" placeholder="example@email.com" type="text">
+      </div>
+    </label>
+
+    <label for="gitHubName" class="label">GitHub Username</label>
+
+    <label for="gitHubName">
+      <div class="divInput">
+        <input id="gitHubName" placeholder="@yourusername" type="text">
+      </div>
+    </label>
+
+    <div class="sendBtn">Generate My Ticket</div>
+  </div>
+
+  <div class="result"></div>
+</body>
+</html>
