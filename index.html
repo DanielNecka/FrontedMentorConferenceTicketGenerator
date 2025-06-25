@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="./css/style.css">
 
   <title>Frontend Mentor | Conference ticket generator</title>
+
+  <script src="./scripts/script.js" defer></script>
 </head>
 <body>
   <div class="bg">
@@ -34,36 +36,38 @@
   
     <label for="avatar" class="label">Upload Avatar</label>
     <label for="avatar">
-      <div class="avatarInput">
+      <div class="avatarInput" id="avatarInput">
         <div class="avatarImg"></div>
         <div class="avatarText">Drag and drop or click to upload</div>
       </div>
+
+      <input type="file" name="avatar" id="avatar" accept="image/*" class="avatarInputFile">
     </label>
 
     <div class="avatarMsg"><div class="msgImg"></div>Upload your photo (JPG or PNG, max size: 500KB).</div>
-
-    <input type="file" name="avatar" id="avatar" accept="image/*" class="avatarInputFile">
   
-    <label for="name" class="label">Full Name</label>
+    <label for="name">Full Name</label>
 
     <label for="name">
-      <div class="divInput">
+      <div class="divInput" id="nameInput">
         <input id="name" type="text">
       </div>
     </label>
 
-    <label for="email" class="label">Email Address</label>
+    <label for="email">Email Address</label>
 
     <label for="email">
-      <div class="divInput">
-        <input id="text" placeholder="example@email.com" type="text">
+      <div class="divInput" id="emailInput">
+        <input id="email" placeholder="example@email.com" type="text">
       </div>
     </label>
 
-    <label for="gitHubName" class="label">GitHub Username</label>
+    <div class="emailMsg"><div class="msgImg redIcon"></div>Please enter a valid email adress.</div>
+
+    <label for="gitHubName">GitHub Username</label>
 
     <label for="gitHubName">
-      <div class="divInput">
+      <div class="divInput" id="gitHubNameInput">
         <input id="gitHubName" placeholder="@yourusername" type="text">
       </div>
     </label>
@@ -71,6 +75,40 @@
     <div class="sendBtn">Generate My Ticket</div>
   </div>
 
-  <div class="result"></div>
+  <div class="result">
+    <div class="logo">
+      <a class="logoLink" href=""></a>
+    </div>
+
+    <div class="title">Congrats, <span class="userName">Daniel Nęcka</span>! Your ticket is ready.</div>
+
+    <div class="text">We've emailed your ticket to <span class="userEmail">neckadaniel@gmail.com</span> and will send updates in the run up to the event.</div>
+  
+    <div class="ticket">
+      <div class="left">
+        <div class="titleBox">
+          <div class="img"></div>
+          
+          <div class="contentTitle">
+            <div class="ticketTitle">Coding Conf</div>
+            <div class="ticketText">Jan 31, 2025 / Austin, TX</div>
+          </div>
+        </div>
+
+        <div class="userBox">
+          <div class="userAvatar"></div>
+          
+          <div class="contentTitle">
+            <div class="ticketTitle">Daniel Nęcka</div>
+            <div class="ticketText"><div class="gitLogo"></div>@DanielNecka</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="number">#01609</div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

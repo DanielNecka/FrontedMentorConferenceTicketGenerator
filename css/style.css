@@ -165,12 +165,13 @@ body {
   margin-bottom: 30px;
 }
 .content label {
+  width: 90%;
   margin-left: 5%;
   color: hsl(0, 0%, 100%);
   font-size: 20px;
 }
 .content .avatarInput {
-  width: 95%;
+  width: 100%;
   margin-top: 20px;
   display: flex;
   justify-content: center;
@@ -196,6 +197,10 @@ body {
   font-weight: 400;
   line-height: 1.2;
 }
+.content .avatarInput:hover {
+  cursor: default;
+  background: hsla(246, 15%, 58%, 0.5);
+}
 .content .avatarMsg {
   display: flex;
   gap: 10px;
@@ -214,7 +219,7 @@ body {
   display: none;
 }
 .content .divInput {
-  width: 95%;
+  width: 100%;
   height: 50px;
   margin-top: 20px;
   margin-bottom: 30px;
@@ -240,6 +245,35 @@ body {
 .content .divInput input::placeholder {
   color: hsla(252, 6%, 83%, 0.7);
 }
+.content .divInput:hover {
+  cursor: default;
+  background: hsla(246, 15%, 58%, 0.5);
+}
+.content .divInput:hover input {
+  cursor: default;
+}
+.content .emailMsg {
+  display: none;
+  gap: 10px;
+  margin-left: 5%;
+  margin-top: -20px;
+  color: hsla(252, 6%, 83%, 0.7);
+  font-size: 12px;
+  color: hsl(7, 71%, 60%);
+}
+.content .emailMsg .msgImg {
+  width: 12px;
+  height: 12px;
+  margin-bottom: 30px;
+}
+.content .inputError {
+  border: 1px solid hsl(7, 71%, 60%);
+}
+.content .redIcon {
+  background-color: hsl(7, 71%, 60%);
+  -webkit-mask: url("../assets/images/icon-info.svg") center/cover no-repeat;
+  mask: url("../assets/images/icon-info.svg") center/cover no-repeat;
+}
 .content .sendBtn {
   width: 90%;
   height: 50px;
@@ -253,6 +287,10 @@ body {
   font-size: 20px;
   font-weight: 800;
 }
+.content .sendBtn:hover {
+  cursor: default;
+  background-color: hsl(7, 71%, 60%);
+}
 
 @media (min-width: 1000px) {
   .title {
@@ -261,14 +299,16 @@ body {
     font-size: 50px !important;
   }
   .text {
+    width: 33.3333% !important;
+    margin-left: 33.333333% !important;
     font-size: 24px !important;
   }
-  .label {
+  label {
     margin-left: 33.333333% !important;
+    width: 33.3333% !important;
   }
   .avatarInput {
-    width: 35% !important;
-    margin-left: 29.8% !important;
+    width: 100% !important;
   }
   .avatarMsg {
     margin-left: 33.333333% !important;
@@ -278,9 +318,16 @@ body {
     width: 18px !important;
     height: 18px !important;
   }
+  .emailMsg {
+    margin-left: 33.333333% !important;
+    font-size: 18px !important;
+  }
+  .emailMsg .msgImg {
+    width: 18px !important;
+    height: 18px !important;
+  }
   .divInput {
-    width: 35% !important;
-    margin-left: 29.8% !important;
+    width: 100% !important;
   }
   .sendBtn {
     width: 33.333333% !important;
@@ -291,8 +338,152 @@ body {
   position: absolute;
   width: 100%;
   height: 100vh;
-  display: none;
   z-index: 3;
+  display: none;
+  flex-direction: column;
+}
+.result .logo {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.result .logo .logoLink {
+  width: 60%;
+  height: 50px;
+  background: url("../assets/images/logo-full.svg") center/contain no-repeat;
+}
+.result .title {
+  width: 90%;
+  margin-left: 5%;
+  color: hsl(0, 0%, 100%);
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+}
+.result .title .userName {
+  background: linear-gradient(90deg, hsl(7, 86%, 67%) 0%, hsl(0, 0%, 100%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.result .text {
+  width: 90%;
+  margin-left: 5%;
+  color: hsla(252, 6%, 83%, 0.7);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.result .text .userEmail {
+  color: hsl(7, 88%, 67%);
+}
+.result .ticket {
+  width: 90%;
+  aspect-ratio: 2.14/1;
+  margin-left: 5%;
+  padding-left: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  background: url("../assets/images/pattern-ticket.svg") center/contain no-repeat;
+}
+.result .ticket .left {
+  width: 81%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+.result .ticket .left .titleBox {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.result .ticket .left .titleBox .img {
+  width: 40px;
+  height: 40px;
+  background: url("../assets/images/logo-mark.svg") center/contain no-repeat;
+}
+.result .ticket .left .titleBox .contentTitle {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.result .ticket .left .titleBox .contentTitle .ticketTitle {
+  color: hsl(0, 0%, 100%);
+  font-size: 25px;
+  font-weight: 500;
+}
+.result .ticket .left .titleBox .contentTitle .ticketText {
+  color: hsla(252, 6%, 83%, 0.7);
+  font-size: 16px;
+  font-weight: 400;
+}
+.result .ticket .left .userBox {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.result .ticket .left .userBox .userAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background: url("../assets/images/image-avatar.jpg") center/cover no-repeat;
+}
+.result .ticket .left .userBox .contentTitle {
+  height: 100%;
+  max-height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.result .ticket .left .userBox .contentTitle .ticketTitle {
+  color: hsl(0, 0%, 100%);
+  font-size: 25px;
+  font-weight: 500;
+}
+.result .ticket .left .userBox .contentTitle .ticketText {
+  color: hsla(252, 6%, 83%, 0.7);
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+}
+.result .ticket .left .userBox .contentTitle .ticketText .gitLogo {
+  width: 16px;
+  height: 16px;
+  background: url("../assets/images/icon-github.svg") center/contain no-repeat;
+}
+.result .ticket .right {
+  width: 19%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.result .ticket .right .number {
+  color: hsla(252, 6%, 83%, 0.7);
+  transform: rotate(90deg);
+  font-size: 20px;
+}
+
+@media (min-width: 850px) {
+  .ticket {
+    width: 33.333333% !important;
+    margin-left: 33.333333% !important;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

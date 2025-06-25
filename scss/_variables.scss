@@ -3,7 +3,14 @@ $textAccent: hsla(252, 6%, 83%, 0.7);
 
 $bgInput: hsla(246, 15%, 58%, 0.2);
 $bgAccentInput: hsla(246, 15%, 58%, 0.2);
+$bgAccentInputHover: hsla(246, 15%, 58%, 0.5);
 $bgBorderAccentInput: hsla(246, 15%, 58%, 0.3);
 
 $btnBgColor: hsl(7, 88%, 67%);
 $btnText: hsl(248, 70%, 10%);
+$btnHover: hsl(7, 71%, 60%);
+
+$errorText: hsl(7, 71%, 60%);
+
+$gradientText: linear-gradient(90deg, hsl(7, 86%, 67%) 0%, hsl(0, 0%, 100%) 100%);
+$emailColor: hsl(7, 88%, 67%);
