@@ -109,17 +109,21 @@
                 .contentTitle {
                     height: 100%;
 
+                    max-height: 70px;
+
                     display: flex;
                     flex-direction: column;
                     justify-content: space-around;
 
                     .ticketTitle {
+                        width: 90%;
                         color: $textColor;
                         font-size: 25px;
                         font-weight: 500;
                     }
 
                     .ticketText {
+                        width: 90%;
                         color: $textAccent;
                         font-size: 16px;
                         font-weight: 400;
@@ -146,7 +150,6 @@
 
                 .contentTitle {
                     height: 100%;
-
                     max-height: 70px;
 
                     display: flex;
@@ -190,7 +193,7 @@
 
                 transform: rotate(90deg);
 
-                font-size: 20px;
+                font-size: 25px;
             }
         }
     }
@@ -200,5 +203,9 @@
     .ticket {
         width: 33.333333% !important;
         margin-left: 33.333333% !important;
+    }
+
+    .number {
+        font-size: 30px;
     }
 }

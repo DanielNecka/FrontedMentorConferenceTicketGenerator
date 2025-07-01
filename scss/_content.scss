@@ -104,6 +104,10 @@
         background: $bgAccentInputHover;
     }
 
+    .avatarInputError {
+        border: $errorText 1px dashed !important;
+    }
+
     .avatarMsg {
         display: flex;
 
@@ -115,14 +119,21 @@
         color: $textAccent;
         font-size: 12px;
 
+        margin-bottom: 30px;
+
         .msgImg {
             width: 12px;
             height: 12px;
 
-            background: url("../assets/images/icon-info.svg") center / cover no-repeat;
-        
-            margin-bottom: 30px;
+            background-color: $textAccent;
+
+            -webkit-mask: url("../assets/images/icon-info.svg") center / cover no-repeat;
+            mask: url("../assets/images/icon-info.svg") center / cover no-repeat;
         }
+    }
+
+    .textErrorMsg {
+        color: $errorText !important;
     }
 
     .avatarInputFile {
@@ -183,6 +194,8 @@
         margin-left: 5%;
         margin-top: -20px;
 
+        margin-bottom: 30px;
+
         color: $textAccent;
         font-size: 12px;
 
@@ -192,7 +205,10 @@
             width: 12px;
             height: 12px;
 
-            margin-bottom: 30px;
+            background-color: $errorText !important;
+
+            -webkit-mask: url("../assets/images/icon-info.svg") center / cover no-repeat !important;
+            mask: url("../assets/images/icon-info.svg") center / cover no-repeat !important;
         }
     }
 
@@ -201,9 +217,9 @@
     }
 
     .redIcon {
-        background-color: $errorText; 
-        -webkit-mask: url("../assets/images/icon-info.svg") center / cover no-repeat;
-        mask: url("../assets/images/icon-info.svg") center / cover no-repeat;
+        background-color: $errorText !important; 
+        -webkit-mask: url("../assets/images/icon-info.svg") center / cover no-repeat !important;
+        mask: url("../assets/images/icon-info.svg") center / cover no-repeat !important;
     }
 
     .sendBtn {

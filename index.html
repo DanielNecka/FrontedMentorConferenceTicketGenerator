@@ -35,8 +35,8 @@
     <div class="text">Secure your spot at next year's biggest coding conference.</div>
   
     <label for="avatar" class="label">Upload Avatar</label>
-    <label for="avatar">
-      <div class="avatarInput" id="avatarInput">
+    <label for="avatar" id="dragDrop">
+      <div class="avatarInput">
         <div class="avatarImg"></div>
         <div class="avatarText">Drag and drop or click to upload</div>
       </div>
@@ -45,7 +45,7 @@
     </label>
 
     <div class="avatarMsg"><div class="msgImg"></div>Upload your photo (JPG or PNG, max size: 500KB).</div>
-  
+    
     <label for="name">Full Name</label>
 
     <label for="name">
@@ -80,7 +80,7 @@
       <a class="logoLink" href=""></a>
     </div>
 
-    <div class="title">Congrats, <span class="userName">Daniel Nęcka</span>! Your ticket is ready.</div>
+    <div class="title">Congrats, <span class="userName"></span>! Your ticket is ready.</div>
 
     <div class="text">We've emailed your ticket to <span class="userEmail">neckadaniel@gmail.com</span> and will send updates in the run up to the event.</div>
   
@@ -99,14 +99,14 @@
           <div class="userAvatar"></div>
           
           <div class="contentTitle">
-            <div class="ticketTitle">Daniel Nęcka</div>
-            <div class="ticketText"><div class="gitLogo"></div>@DanielNecka</div>
+            <div class="ticketTitle" id="ticketName"></div>
+            <div class="ticketText"><div class="gitLogo"></div><div id="gitHubNameTicket"></div></div>
           </div>
         </div>
       </div>
 
       <div class="right">
-        <div class="number">#01609</div>
+        <div class="number"></div>
       </div>
     </div>
   </div>

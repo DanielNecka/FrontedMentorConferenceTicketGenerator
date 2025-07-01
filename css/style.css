@@ -201,6 +201,9 @@ body {
   cursor: default;
   background: hsla(246, 15%, 58%, 0.5);
 }
+.content .avatarInputError {
+  border: hsl(7, 71%, 60%) 1px dashed !important;
+}
 .content .avatarMsg {
   display: flex;
   gap: 10px;
@@ -208,12 +211,17 @@ body {
   margin-top: 10px;
   color: hsla(252, 6%, 83%, 0.7);
   font-size: 12px;
+  margin-bottom: 30px;
 }
 .content .avatarMsg .msgImg {
   width: 12px;
   height: 12px;
-  background: url("../assets/images/icon-info.svg") center/cover no-repeat;
-  margin-bottom: 30px;
+  background-color: hsla(252, 6%, 83%, 0.7);
+  -webkit-mask: url("../assets/images/icon-info.svg") center/cover no-repeat;
+  mask: url("../assets/images/icon-info.svg") center/cover no-repeat;
+}
+.content .textErrorMsg {
+  color: hsl(7, 71%, 60%) !important;
 }
 .content .avatarInputFile {
   display: none;
@@ -257,6 +265,7 @@ body {
   gap: 10px;
   margin-left: 5%;
   margin-top: -20px;
+  margin-bottom: 30px;
   color: hsla(252, 6%, 83%, 0.7);
   font-size: 12px;
   color: hsl(7, 71%, 60%);
@@ -264,15 +273,17 @@ body {
 .content .emailMsg .msgImg {
   width: 12px;
   height: 12px;
-  margin-bottom: 30px;
+  background-color: hsl(7, 71%, 60%) !important;
+  -webkit-mask: url("../assets/images/icon-info.svg") center/cover no-repeat !important;
+  mask: url("../assets/images/icon-info.svg") center/cover no-repeat !important;
 }
 .content .inputError {
   border: 1px solid hsl(7, 71%, 60%);
 }
 .content .redIcon {
-  background-color: hsl(7, 71%, 60%);
-  -webkit-mask: url("../assets/images/icon-info.svg") center/cover no-repeat;
-  mask: url("../assets/images/icon-info.svg") center/cover no-repeat;
+  background-color: hsl(7, 71%, 60%) !important;
+  -webkit-mask: url("../assets/images/icon-info.svg") center/cover no-repeat !important;
+  mask: url("../assets/images/icon-info.svg") center/cover no-repeat !important;
 }
 .content .sendBtn {
   width: 90%;
@@ -416,16 +427,19 @@ body {
 }
 .result .ticket .left .titleBox .contentTitle {
   height: 100%;
+  max-height: 70px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 .result .ticket .left .titleBox .contentTitle .ticketTitle {
+  width: 90%;
   color: hsl(0, 0%, 100%);
   font-size: 25px;
   font-weight: 500;
 }
 .result .ticket .left .titleBox .contentTitle .ticketText {
+  width: 90%;
   color: hsla(252, 6%, 83%, 0.7);
   font-size: 16px;
   font-weight: 400;
@@ -476,13 +490,16 @@ body {
 .result .ticket .right .number {
   color: hsla(252, 6%, 83%, 0.7);
   transform: rotate(90deg);
-  font-size: 20px;
+  font-size: 25px;
 }
 
 @media (min-width: 850px) {
   .ticket {
     width: 33.333333% !important;
     margin-left: 33.333333% !important;
+  }
+  .number {
+    font-size: 30px;
   }
 }
 
