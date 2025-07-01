@@ -209,4 +209,4 @@ function sendData(email, ticket) {
     .catch(err => {
         console.error('Error sending email:', err);
     });
-};
+}
