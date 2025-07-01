@@ -197,7 +197,7 @@ function blobToDataUri(blob) {
 function sendData(email, ticket) {
     console.log(ticket)
 
-    fetch('http://localhost:3000/sendTicket', {
+    fetch('https://serverforfrontedmentorconferenceticketge.onrender.com/sendTicket', {
         method: 'POST',
         headers: {'Content-Type': 'application/json',},
         body: JSON.stringify({ email: email, html: ticket })
