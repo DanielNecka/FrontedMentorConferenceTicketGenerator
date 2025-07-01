@@ -129,7 +129,7 @@ function generateTicketNumber() {
 }
 
 function changeViev(name, email, avatar, gitHubName, ticketNumber) {
-    document.querySelector('.content').style.display = 'none';
+    document.querySelector('.content').remove();
     document.querySelector('.result').style.display = 'flex';
 
     document.querySelector('.userName').innerText = name;
@@ -147,18 +147,60 @@ function changeViev(name, email, avatar, gitHubName, ticketNumber) {
     donwloadTicket(email);
 }
 
-function donwloadTicket(email) {
-    sendData(email, fullHTML);
+async function donwloadTicket(email) {
+    const html = document.querySelector('body');
+    const style = document.querySelector('link[href$="style.css"]');
+    const avatar = document.querySelector('.userAvatar');
+    
+    const avatarUrl = avatar.style.backgroundImage.replace(/url\(['"]?(.*?)['"]?\)/, '$1');
+    let css = await fetch(style.href).then(res => res.text());
+    css = await convertCssUrlsToBase64(css, style.href);
+    const clonedHtml = html.cloneNode(true);
+    const base64Avatar = await convertImageToBase64(avatarUrl);
+    const avatarElement = clonedHtml.querySelector('.userAvatar');
+    avatarElement.style.backgroundImage = `url(${base64Avatar})`;
+
+    const ticket = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><title>Your Conference Ticket</title><style>${css}</style></head>${clonedHtml.outerHTML}</html>`;
+
+    sendData(email, ticket);
 }
 
-function sendData(email, fullHTML) {
-    console.log(fullHTML);
-    console.log(email)
+async function convertImageToBase64(imageUrl) {
+    const response = await fetch(imageUrl);
+    const blob = await response.blob();
+    return await blobToDataUri(blob);
+}
+
+async function convertCssUrlsToBase64(cssText, baseUrl) {
+    const urlRegex = /url\(['"]?(.*?)['"]?\)/gi;
+    const matches = [...cssText.matchAll(urlRegex)];
+    
+    for (const match of matches) {
+        const originalUrl = match[1];
+    
+        const absoluteUrl = new URL(originalUrl, baseUrl).toString();
+        const dataUri = await convertImageToBase64(absoluteUrl);
+        cssText = cssText.replace(originalUrl, dataUri);
+    }
+    
+    return cssText;
+}
+
+function blobToDataUri(blob) {
+    return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.readAsDataURL(blob);
+    });
+}
+
+function sendData(email, ticket) {
+    console.log(ticket)
 
     fetch('http://localhost:3000/sendTicket', {
         method: 'POST',
         headers: {'Content-Type': 'application/json',},
-        body: JSON.stringify({ email: email, html: fullHTML })
+        body: JSON.stringify({ email: email, html: ticket })
     })
     .then(res => res.json())
     .then(data => {
@@ -168,5 +210,3 @@ function sendData(email, fullHTML) {
         console.error('Error sending email:', err);
     });
 };
-
-
