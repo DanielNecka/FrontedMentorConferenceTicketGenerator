@@ -144,63 +144,30 @@ function changeViev(name, email, avatar, gitHubName, ticketNumber) {
     document.querySelector('#gitHubNameTicket').innerText = gitHubName;
     document.querySelector('.number').innerText = "#" + ticketNumber;
 
-    donwloadTicket(email);
+    downloadTicket(email);
 }
 
-async function donwloadTicket(email) {
-    const html = document.querySelector('body');
-    const style = document.querySelector('link[href$="style.css"]');
-    const avatar = document.querySelector('.userAvatar');
-    
-    const avatarUrl = avatar.style.backgroundImage.replace(/url\(['"]?(.*?)['"]?\)/, '$1');
-    let css = await fetch(style.href).then(res => res.text());
-    css = await convertCssUrlsToBase64(css, style.href);
-    const clonedHtml = html.cloneNode(true);
-    const base64Avatar = await convertImageToBase64(avatarUrl);
-    const avatarElement = clonedHtml.querySelector('.userAvatar');
-    avatarElement.style.backgroundImage = `url(${base64Avatar})`;
-
-    const ticket = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><title>Your Conference Ticket</title><style>${css}</style></head>${clonedHtml.outerHTML}</html>`;
-
-    sendData(email, ticket);
-}
-
-async function convertImageToBase64(imageUrl) {
-    const response = await fetch(imageUrl);
-    const blob = await response.blob();
-    return await blobToDataUri(blob);
-}
-
-async function convertCssUrlsToBase64(cssText, baseUrl) {
-    const urlRegex = /url\(['"]?(.*?)['"]?\)/gi;
-    const matches = [...cssText.matchAll(urlRegex)];
-    
-    for (const match of matches) {
-        const originalUrl = match[1];
-    
-        const absoluteUrl = new URL(originalUrl, baseUrl).toString();
-        const dataUri = await convertImageToBase64(absoluteUrl);
-        cssText = cssText.replace(originalUrl, dataUri);
-    }
-    
-    return cssText;
-}
-
-function blobToDataUri(blob) {
-    return new Promise((resolve) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.readAsDataURL(blob);
+async function downloadTicket(email) {
+    const ticket = document.querySelector('.ticket');
+    const canvas = await html2canvas(ticket, {  
+        scale: 10,
+        useCORS: true,
+        logging: true,
+        backgroundColor: '#120235'
     });
+
+    const imageData = canvas.toDataURL('image/png');
+    sendData(email, imageData);
 }
 
-function sendData(email, ticket) {
-    console.log(ticket)
-
+function sendData(email, imageData) {
     fetch('https://serverforfrontedmentorconferenceticketge.onrender.com/sendTicket', {
         method: 'POST',
-        headers: {'Content-Type': 'application/json',},
-        body: JSON.stringify({ email: email, html: ticket })
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ 
+            email: email,
+            image: imageData.split(',')[1] 
+        })
     })
     .then(res => res.json())
     .then(data => {
